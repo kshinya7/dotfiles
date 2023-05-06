@@ -1,8 +1,8 @@
 * {
   /* `otf-font-awesome` is required to be installed for icons */
   font-family: JetBrainsMono Nerd Font;
-  font-size: 11px;
-  font-weight: 900;
+  font-size: 16px;
+  font-weight: 700;
   margin: 0;
   padding: 0;
 }
@@ -24,7 +24,7 @@ window#waybar.hidden {
 }
 
 #workspaces button {
-  padding: 0 0px;
+  padding: 0 3px;
   color: #7984a4;
   background-color: transparent;
   /* Use box-shadow instead of border so the text isn't offset */
@@ -88,24 +88,25 @@ window#waybar.hidden {
   color: #e5e5e5;
   /* color: #bf616a; */
   border-radius: 20px;
-  background-color: #1e1e1e;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 #window,
 #workspaces {
-  border-radius: 20px;
+  border-radius: 18px;
   padding: 0px 10px;
-  background-color: #1e1e1e;
+  background-color: rgba(0, 0, 0, 0.5);
+  /*background-color: #1e1e1e;*/
 }
 
 #cpu {
   color: #fb958b;
-  background-color: #1e1e1e;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 #memory {
   color: #ebcb8b;
-  background-color: #1e1e1e;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 #custom-power-menu {

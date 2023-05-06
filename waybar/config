@@ -1,13 +1,13 @@
 {
-    "height": 20, // Waybar height (to be removed for auto height)
-    "margin-top": 3,
-    "margin-left": 10,
+    "height": 40, // Waybar height (to be removed for auto height)
+    "margin-top": 5,
+    "margin-left": 14,
     "margin-bottom": 0,
-    "margin-right": 10,
-    "spacing": 5, // Gaps between modules (4px)
-    "modules-left": [ "cpu", "memory","battery"],
-    "modules-center": ["wlr/workspaces"],
-    "modules-right": ["pulseaudio", "network",  "clock"],
+    "margin-right": 14,
+    "spacing": 8,
+    "modules-left": ["wlr/workspaces"],
+    "modules-center": [],
+    "modules-right": ["cpu", "memory", "pulseaudio", "battery", "network",  "clock"],
     "wlr/workspaces": {
       "format": "{icon}",
       "on-click": "activate",
