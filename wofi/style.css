@@ -1,76 +1,71 @@
 window {
-    margin: 0px;
-    border: 5px solid #1e1e2e;
-    background-color: #cdd6f4;
-    border-radius: 10px;
+  margin: 0px;
+  border: 5px solid #111019;
+  background-color: rgba(11, 10, 16, 0.9);
+  border-radius: 15px;
 }
 
 #input {
-    padding: 4px;
-    margin: 4px;
-    padding-left: 20px;
-    border: none;
-    color: #cdd6f4;
-    font-weight: bold;
-    background-color: #1e1e2e;
-    background: ;
-   	outline: none;
-    border-radius: 10px;
-    margin: 10px;
-    margin-bottom: 2px;
-}
-#input:focus {
-    border: 0px solid #1e1e2e;
-    margin-bottom: 0px;
+  all: unset;
+  min-height: 36px;
+  padding: 4px 10px;
+  margin: 4px;
+  border: none;
+  color: #e2e0ec;
+  font-weight: bold;
+  background-color: #161420;
+  outline: none;
+  border-radius: 15px;
+  margin: 10px;
+  margin-bottom: 2px;
 }
 
 #inner-box {
-    margin: 4px;
-    border: 10px solid #1e1e2e;
-    color: #cdd6f4;
-    font-weight: bold;
-    background-color: #1e1e2e;
-    border-radius: 15px;
+  margin: 4px;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 15px;
 }
 
 #outer-box {
-    margin: 0px;
-    border: none;
-    border-radius: 10px;
-    background-color: #1e1e2e;
+  margin: 0px;
+  padding: 3px;
+  border: none;
+  border-radius: 15px;
+  border: 5px solid #111019;
 }
 
 #scroll {
-    margin-top: 5px;
-    border: none;
-    border-radius: 10px;
-    margin-bottom: 5px;
-    /* background: rgb(255,255,255); */
-}
-
-#img:selected {
-    background-color: #89b4fa;
-    border-radius: 10px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 15px;
+  margin-bottom: 5px;
 }
 
 #text:selected {
-    color: #cdd6f4;
-    margin: 0px 0px;
-    border: none;
-    border-radius: 10px;
-    background-color: #89b4fa;
+  color: #ffffff;
+  margin: 0px 0px;
+  border: none;
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+#img:selected {
+    background-color: transparent;
+    border-radius: 20px;
 }
 
 #entry {
-    margin: 0px 0px;
-    border: none;
-    border-radius: 10px;
-    background-color: transparent;
+  margin: 0px 0px;
+  border: none;
+  border-radius: 15px;
+  background-color: transparent;
 }
 
 #entry:selected {
-    margin: 0px 0px;
-    border: none;
-    border-radius: 10px;
-    background-color: #89b4fa;
+  margin: 0px 0px;
+  border: none;
+  border-radius: 15px;
+  background: linear-gradient(90deg, #34a0a4 0%, #52b69a 100%);
 }
+

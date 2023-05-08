@@ -1,15 +1,16 @@
 {
-    "height": 40, // Waybar height (to be removed for auto height)
-    "margin-top": 5,
-    "margin-left": 14,
+    "layer": "top",
+    "height": 35, // Waybar height (to be removed for auto height)
+    "margin-top": 0,
+    "margin-left": 0,
     "margin-bottom": 0,
-    "margin-right": 14,
-    "spacing": 8,
+    "margin-right": 0,
+    "spacing": 3,
     "modules-left": ["wlr/workspaces"],
     "modules-center": [],
-    "modules-right": ["cpu", "memory", "pulseaudio", "battery", "network",  "clock"],
+    "modules-right": ["cpu", "memory", "pulseaudio", "battery", "backlight", "bluetooth", "network",  "clock"],
     "wlr/workspaces": {
-      "format": "{icon}",
+      "format": "{name}",
       "on-click": "activate",
       "format-icons": {
         "1": "",
@@ -29,9 +30,7 @@
         "spacing": 10
     },
     "clock": {
-        "format": "<span color='#bf616a'> </span>{:%I:%M %p}",
-        "format-alt": "<span color='#bf616a'> </span>{:%a %b %d}",
-        "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%B %d, %I:%M %p}"
     },
 
     "cpu": {
@@ -48,12 +47,11 @@
     },
     "backlight": {
         "device": "DP-1",
-        "format": "{icon} {percent}%",
+        "format": "{icon}",
         "format-icons": ["", "", "", "", "", "", "", "", ""],
-        "on-click": "",
     },
     "network": {
-        "format-wifi": "直 {signalStrength}%",
+        "format-wifi": "直",
         "format-ethernet": " wired",
         "format-disconnected": "睊",
     },
@@ -76,7 +74,7 @@
     },
 
     "bluetooth": {
-        "format": " {status}",
+        "format": "",
     },
 
     "battery": {
@@ -87,12 +85,11 @@
           "warning": 30,
           "critical": 15
       },
-      "on-click": "sh ~/.config/waybar/scripts/power-profiles", 
       "max-length": 20,
       "format": "{icon} {capacity}%",
       "format-warning": "{icon} {capacity}%",
       "format-critical": "{icon} {capacity}%",
-      "format-charging": "<span font-family='Font Awesome 6 Free'></span> {capacity}%",
+      "format-charging": "<span color='#3bd7a0' font-family='Font Awesome 6 Free'></span> {capacity}%",
       "format-plugged": "  {capacity}%",
       "format-alt": "{icon} {time}",
       "format-full": "  {capacity}%",

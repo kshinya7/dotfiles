@@ -1,0 +1,9 @@
+[Unit]
+Description=Start Hyprland on boot
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/Hyprland
+
+[Install]
+WantedBy=default.target
