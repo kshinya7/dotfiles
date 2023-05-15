@@ -40,14 +40,20 @@ return require('packer').startup(function(use)
 
     -- transparent bg
     use {
-	'xiyaowong/transparent.nvim',
-	config = function() require('kiyo.plugins.transparent') end
+	      'xiyaowong/transparent.nvim',
+	      config = function() require('kiyo.plugins.transparent') end
     }
 
-    -- color scheme
+    -- color schemes
     use {
-        "catppuccin/nvim",
-        as = "catppuccin",
+        "lunarvim/horizon.nvim",
+        as = "horizon",
+        config = function() require('kiyo.plugins.theme') end
+    }
+
+    use {
+        "rose-pine/neovim",
+        as = "rose-pine",
         config = function() require('kiyo.plugins.theme') end
     }
 
