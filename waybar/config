@@ -32,7 +32,9 @@
     "clock": {
         "format": "{:%B %d, %I:%M %p}"
     },
-
+    "temperature": {
+        "format": "{temperatureC}°C"
+    },
     "cpu": {
       "interval": 1,
       "format": " {usage}%",
