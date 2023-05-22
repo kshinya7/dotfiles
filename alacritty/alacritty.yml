@@ -5,7 +5,7 @@ window:
   class:
     instance: Alacritty
     general: Alacritty
-  opacity: 0.94
+  opacity: 0.92
 
 scrolling:
   history: 10000
@@ -29,7 +29,7 @@ font:
     y: 1
 
 import:
-  - /home/kiyo/.config/alacritty/github_dark_default.yaml
+  - /home/kiyo/.config/alacritty/custom-pink.yaml
 
 selection:
   save_to_clipboard: false

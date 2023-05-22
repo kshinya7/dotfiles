@@ -3,8 +3,8 @@
 colors:
   # Default colors
   primary:
-    background: '0x1a1b26'
-    foreground: '0xa9b1d6'
+    background: '0x141414'
+    foreground: '0xd4d8eb'
 
   # Normal colors
   normal:

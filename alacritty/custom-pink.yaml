@@ -1,0 +1,53 @@
+# Custom pink theme based on Rosé Pine Dawn
+colors:
+  # Default colors
+  primary:
+    background: "0x141414"
+    foreground: "0xd4cecd"
+
+  cursor:
+    text: "0x575279"
+    cursor: "0xcecacd"
+
+  vi_mode_cursor:
+    text: "0x575279"
+    cursor: "0xcecacd"
+
+  line_indicator:
+    foreground: None
+    background: None
+
+  selection:
+    text: "0x2f2d40"
+    background: "0xd4cecd"
+
+  # Normal colors
+  normal:
+    black:    "0x32344a"
+    red:      "0xb4637a"
+    green:    "0x1B9C85"
+    yellow:   "0xea9d34"
+    blue:     "0x3da9c4"
+    magenta:  "0xbe89d6"
+    cyan:     "0xb05a72"
+    white:    "0x575279"
+
+  # Bright colors
+  bright:
+    black:    "0x444b6a"
+    red:      "0xb4637a"
+    green:    "0x1B9C85"
+    yellow:   "0xea9d34"
+    blue:     "0x19A7CE"
+    magenta:  "0xbe89d6"
+    cyan:     "0xb05a72"
+    white:    "0x575279"
+
+  # Hints
+  hints:
+    start:
+      foreground: "#797593"
+      background: "#fffaf3"
+    end:
+      foreground: "#9893a5"
+      background: "#fffaf3"
