@@ -27,6 +27,7 @@ font:
   size: 13
   offset:
     y: 2
+    x: 0
 
 import:
   - /home/kiyo/.config/alacritty/custom-pink.yaml
