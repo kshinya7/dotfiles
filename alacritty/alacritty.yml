@@ -5,7 +5,7 @@ window:
   class:
     instance: Alacritty
     general: Alacritty
-  opacity: 0.92
+  opacity: 0.95
 
 scrolling:
   history: 10000
@@ -16,17 +16,17 @@ font:
     family: DejaVu Sans Mono
     style:  Regular
   bold:
-    family: DejaVu Sans Mono
+    family: DejaVu Sans M Nerd Font
     style:  Bold
   italic:
-    family: DejaVu Sans Mono
+    family: DejaVu Sans M Nerd Font
     style:  Italic
   bold_italic:
-    family: DejaVu Sans Mono
+    family: DejaVu Sans M Nerd Font
     style: Bold Italic
   size: 13
   offset:
-    y: 1
+    y: 2
 
 import:
   - /home/kiyo/.config/alacritty/custom-pink.yaml
