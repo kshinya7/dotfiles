@@ -30,5 +30,6 @@ vim.api.nvim_create_autocmd("User", {
 })
 
 require("config.options")
+require("config.filetypes")
 require("config.lazy")
 
