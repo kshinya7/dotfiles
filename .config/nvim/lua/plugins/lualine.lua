@@ -19,7 +19,8 @@ return {
 
     require("lualine").setup({
       options = {
-        theme = horizon,
+      icons_enabled = false,
+      theme = horizon,
         globalstatus = true,
         section_separators = "",
         component_separators = "",
@@ -27,11 +28,11 @@ return {
 
       sections = {
         lualine_a = { "mode" },
-        lualine_b = { "branch", "diff", "diagnostics" },
-        lualine_c = {},
-        lualine_x = {},
-        lualine_y = { "progress" },
-        lualine_z = { "location" },
+        lualine_b = { "branch" },
+        lualine_c = { "diff", "diagnostics" },
+        lualine_x = { { "filetype", icon = false }, "location" },
+        lualine_y = {},
+        lualine_z = {},
       },
 
       tabline = {

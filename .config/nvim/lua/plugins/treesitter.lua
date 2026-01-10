@@ -5,13 +5,18 @@ return {
   opts = {
     ensure_installed = {
       "lua",
-      "javascript",
-      "ruby",
       "bash",
       "vim",
-      "eruby",
+
+      -- Ruby / Rails
+      "ruby",
+      "eruby",       -- .html.erb
+      "embedded_template",
       "html",
       "css",
+      "javascript",
+      "json",
+      "yaml",
     },
     highlight = { enable = true },
     indent = { enable = true },

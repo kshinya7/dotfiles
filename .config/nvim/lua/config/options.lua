@@ -15,15 +15,23 @@ opt.clipboard:append("unnamedplus")
 vim.opt.smartcase = true
 opt.splitright = true
 opt.splitbelow = true
+opt.laststatus = 3
+vim.opt.swapfile = false
+vim.opt.showmode = false
+vim.opt.cmdheight = 0
 
 opt.termguicolors = true
 opt.background = "dark"
 
 vim.g.mapleader = " "
 
--- easy escape
+-- easy escape and save quit
 vim.keymap.set('i', 'jk', '<Esc>', { noremap = true, silent = true })
 vim.keymap.set('v', 'jk', '<Esc>', { noremap = true, silent = true })
+vim.keymap.set("t", "jk", "<C-\\><C-n>", { silent = true })
+
+vim.keymap.set('n', '<leader>w', ':write<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>q', ':quit<CR>', { noremap = true, silent = true })
 
 -- window navigation
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { noremap = true })
