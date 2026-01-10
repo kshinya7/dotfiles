@@ -15,7 +15,7 @@ return {
           fd_opts = "--type f --exclude 'sorbet/rbi/'"
         })
       end,
-      desc="Find Files in project directory"
+      desc="Find files in project directory"
     },
     { 
       "<leader>fg",
@@ -30,7 +30,7 @@ return {
       desc = "Find existing buffers",
     },
     {
-      "<leader>/",
+      "<leader><leader>",
       function()
         require("fzf-lua").lgrep_curbuf()
       end,
@@ -46,24 +46,80 @@ return {
     {
       "<leader>fc",
       function()
-        require("fzf-lua").files({
-          cwd = vim.fn.expand("~/.config/nvim"),
+        require("fzf-lua").commands()
+      end,
+      desc = "Find commands"
+    },
+    {
+      "<leader>fF",
+      function()
+        local fzf_lua = require("fzf-lua")
+
+        local dirs = {}
+        local fd_cmd = 'fd --type d --hidden --exclude ".git" --exclude "vendor" --exclude "node_modules" --exclude "tmp" --exclude "public" --exclude "sorbet" .'
+        for dir in io.popen(fd_cmd):lines() do
+          table.insert(dirs, dir)
+        end
+
+        if #dirs == 0 then
+          print("No directories found")
+          return
+        end
+
+        fzf_lua.fzf_exec(dirs, {
+          prompt = "Pick folder> ",
+          actions = {
+            ["default"] = function(selected)
+              if selected[1] then
+                fzf_lua.files({ cwd = selected[1], fd_opts = "--type f" })
+              end
+            end,
+          },
         })
       end,
-      desc = "Find nvim config files"
+      desc = "Pick directory then find files",
+    },
+    {
+      "<leader>fG",
+      function()
+        local fzf_lua = require("fzf-lua")
+
+        local dirs = {}
+        local fd_cmd = 'fd --type d --hidden --exclude ".git" --exclude "vendor" --exclude "node_modules" --exclude "tmp" --exclude "public" --exclude "sorbet" .'
+        for dir in io.popen(fd_cmd):lines() do
+          table.insert(dirs, dir)
+        end
+
+        if #dirs == 0 then
+          print("No directories found")
+          return
+        end
+
+        fzf_lua.fzf_exec(dirs, {
+          prompt = "Pick folder> ",
+          actions = {
+            ["default"] = function(selected)
+              if selected[1] then
+                fzf_lua.live_grep({ cwd = selected[1] })
+              end
+            end,
+          },
+        })
+      end,
+      desc = "Pick directory then live grep",
     },
   },
 
-  config = function()
-    require("fzf-lua").setup {
-      winopts = {
-        height = 0.95,
-        width = 0.90,
-        -- fullscreen = true,
-        preview = {
-          layout = "vertical"
-        }
+  opts = {
+    winopts = {
+      height = 0.8,
+      width = 1.0,
+      row = 1.0,
+      fullscreen = false,
+      preview = {
+        layout = "vertical",
+        vertical = "down:65%",
       },
-    }
-  end,
+    },
+  },
 }

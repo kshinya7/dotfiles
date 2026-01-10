@@ -10,7 +10,7 @@ return {
 
   keys = {
     {
-      "<leader>e",
+      "<leader>ef",
       function()
         require("neo-tree.command").execute({
           toggle = true,
@@ -20,40 +20,61 @@ return {
       end,
       desc = "Toggle NeoTree",
     },
+    {
+      "<leader>eb",
+      function()
+        require("neo-tree.command").execute({
+          toggle = true,
+          source = "buffers",
+          dir = vim.loop.cwd(),
+          reveal = vim.api.nvim_buf_get_name(0),
+        })
+      end,
+      desc = "Toggle NeoTree",
+    },
   },
 
-  config = function(_, opts)
-    require("neo-tree").setup(vim.tbl_deep_extend("force", {
-      filesystem = {
-        filtered_items = {
-          visible = true,
-          hide_dotfiles = false,
+  opts = {
+    filesystem = {
+      filtered_items = {
+        visible = true,
+        hide_dotfiles = false,
+      },
+      renderers = {
+        directory = {
+          { "indent" },
+          { "icon" },
+          { "name" },
+          { "git_status" },
         },
-        renderers = {
-          directory = {
-            { "indent" },
-            { "icon" },
-            { "name" },
-            { "git_status" },
-          },
-          file = {
-            { "indent" },
-            { "icon" },
-            { "name" },
-            { "git_status" },
-          },
-          symlink = {
-            { "indent" },
-            { "icon" },
-            { "name" },
-            { "git_status" },
-          },
+        file = {
+          { "indent" },
+          { "icon" },
+          { "name" },
+          { "git_status" },
         },
-        window = {
-          position = "right",
+        symlink = {
+          { "indent" },
+          { "icon" },
+          { "name" },
+          { "git_status" },
         },
       },
-    }, opts or {}))
-  end,
+      window = {
+        position = "right",
+      },
+    },
+    buffers = {
+      follow_current_file = true,
+      group_empty_dirs = true,
+      show_unloaded = true,
+      window = {
+        position = "right",
+      },
+    },
+    source_selector = {
+      winbar = true,      -- show the “tabs” at the top of the sidebar
+    },
+  },
 }
 
