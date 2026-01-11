@@ -2,25 +2,25 @@ return {
   "nvim-lualine/lualine.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
-    -- unify status box color
-    local horizon = require("lualine.themes.horizon")
-
-    local unified = {
-      fg = horizon.normal.a.fg,
-      bg = horizon.normal.a.bg,
-      gui = "bold",
-    }
-
-    for _, mode in ipairs({ "normal", "insert", "visual", "replace", "command" }) do
-      if horizon[mode] and horizon[mode].a then
-        horizon[mode].a = unified
+    local custom_teide = require("lualine.themes.teide")
+    local bg = "#161a1f"
+    local fg = "#bbbebd"
+    
+    for _, mode in pairs(custom_teide) do
+      if type(mode) == "table" then
+        if mode.a then mode.a = { fg = bg, bg = "#5bcdff", gui = "bold" } end
+        if mode.b then mode.b = { fg = fg, bg = bg } end
+        if mode.c then mode.c = { fg = fg, bg = bg } end
+        if mode.x then mode.x = { fg = fg, bg = bg } end
+        if mode.y then mode.y = { fg = fg, bg = bg } end
+        if mode.z then mode.z = { fg = fg, bg = bg } end
       end
     end
 
     require("lualine").setup({
       options = {
-      icons_enabled = false,
-      theme = horizon,
+        icons_enabled = false,
+        theme = custom_teide,
         globalstatus = true,
         section_separators = "",
         component_separators = "",
@@ -36,7 +36,8 @@ return {
       },
 
       tabline = {
-        lualine_a = {
+        lualine_a = {},
+        lualine_b = {
           {
             "filename",
             path = 0, -- filename only
@@ -47,7 +48,6 @@ return {
             },
           },
         },
-        lualine_b = {},
         lualine_c = {},
         lualine_x = {},
         lualine_y = {},
