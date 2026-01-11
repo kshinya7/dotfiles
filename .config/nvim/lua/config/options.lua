@@ -10,20 +10,34 @@ opt.softtabstop = 2
 opt.shiftwidth = 2
 opt.signcolumn = "yes"
 opt.backspace = "indent,eol,start"
-opt.fillchars = { eob = " " }
 opt.clipboard:append("unnamedplus")
 vim.opt.smartcase = true
 opt.splitright = true
 opt.splitbelow = true
 opt.laststatus = 3
-vim.opt.swapfile = false
-vim.opt.showmode = false
-vim.opt.cmdheight = 0
-
+opt.swapfile = false
+opt.showmode = false
+opt.cmdheight = 0
+opt.cursorline = true
+opt.foldcolumn = "1"
+opt.foldlevel = 99
+opt.foldlevelstart = 99
+opt.foldenable = true
+opt.title = true
+opt.titlestring = "%<%F"
 opt.termguicolors = true
 opt.background = "dark"
-
 vim.g.mapleader = " "
+
+-- char customization
+opt.fillchars = {
+  eob = " ",
+  fold = " ",
+  -- foldopen = "",
+  foldopen = " ",
+  foldclose = "",
+  foldsep = " ",
+}
 
 -- easy escape and save quit
 vim.keymap.set('i', 'jk', '<Esc>', { noremap = true, silent = true })
@@ -33,11 +47,20 @@ vim.keymap.set("t", "jk", "<C-\\><C-n>", { silent = true })
 vim.keymap.set('n', '<leader>w', ':write<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>q', ':quit<CR>', { noremap = true, silent = true })
 
+-- use Ctrl-j and Ctrl-k for command history navigation
+vim.keymap.set('c', '<C-j>', '<Down>', { noremap = true })
+vim.keymap.set('c', '<C-k>', '<Up>', { noremap = true })
+
 -- window navigation
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true })
+
+vim.keymap.set("n", "<C-w>+", ":resize +2<CR>", { silent = true })
+vim.keymap.set("n", "<C-w>-", ":resize -2<CR>", { silent = true })
+vim.keymap.set("n", "<C-w>>", ":vertical resize +2<CR>", { silent = true })
+vim.keymap.set("n", "<C-w><", ":vertical resize -2<CR>", { silent = true })
 
 -- highlight yanked text
 vim.api.nvim_exec([[
