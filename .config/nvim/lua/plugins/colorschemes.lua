@@ -1,13 +1,13 @@
 return {
   {
-    "serhez/teide.nvim",
+    "akinsho/horizon.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme("teide")
+      vim.cmd.colorscheme("horizon")
     end,
   },
-  { "akinsho/horizon.nvim" },
+  { "serhez/teide.nvim" },
   { "folke/tokyonight.nvim" },
   { "ellisonleao/gruvbox.nvim" },
   { "catppuccin/nvim", name = "catppuccin" },

@@ -2,13 +2,13 @@ return {
   "nvim-lualine/lualine.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
-    local custom_teide = require("lualine.themes.teide")
+    local custom_horizon = require("lualine.themes.horizon")
     local bg = "#161a1f"
     local fg = "#bbbebd"
     
-    for _, mode in pairs(custom_teide) do
+    for _, mode in pairs(custom_horizon) do
       if type(mode) == "table" then
-        if mode.a then mode.a = { fg = bg, bg = "#5bcdff", gui = "bold" } end
+        if mode.a then mode.a = { fg = bg, bg = "#c75575", gui = "bold" } end
         if mode.b then mode.b = { fg = fg, bg = bg } end
         if mode.c then mode.c = { fg = fg, bg = bg } end
         if mode.x then mode.x = { fg = fg, bg = bg } end
@@ -20,7 +20,7 @@ return {
     require("lualine").setup({
       options = {
         icons_enabled = false,
-        theme = custom_teide,
+        theme = custom_horizon,
         globalstatus = true,
         section_separators = "",
         component_separators = "",

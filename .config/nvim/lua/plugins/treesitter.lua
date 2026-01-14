@@ -7,10 +7,8 @@ return {
       "lua",
       "bash",
       "vim",
-
-      -- Ruby / Rails
       "ruby",
-      "eruby",       -- .html.erb
+      "eruby",
       "embedded_template",
       "html",
       "css",
@@ -18,7 +16,7 @@ return {
       "json",
       "yaml",
     },
-    highlight = { enable = true },
+    highlight = { enable = true, additional_vim_regex_highlighting = false, },
     indent = { enable = true },
   },
 }

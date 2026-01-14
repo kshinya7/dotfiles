@@ -19,7 +19,21 @@ return {
     },
     { 
       "<leader>fg",
-      function() require('fzf-lua').live_grep() end,
+      function()
+        require('fzf-lua').live_grep({
+          rg_opts = table.concat({
+            "--column",
+            "--line-number",
+            "--hidden",
+            "--glob '!.git/*'",
+            "--glob '!vendor/*'",
+            "--glob '!node_modules/*'",
+            "--glob '!tmp/*'",
+            "--glob '!public/*'",
+            "--glob '!sorbet/*'",
+          }, " "),
+        })
+      end,
       desc="Find by grepping in project directory"
     },
     {
