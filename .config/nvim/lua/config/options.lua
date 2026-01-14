@@ -2,6 +2,8 @@ local opt = vim.opt
 
 opt.relativenumber = true
 opt.number = true
+opt.timeoutlen = 400
+opt.updatetime = 200
 opt.wrap = true
 opt.linebreak = true
 opt.expandtab = true
@@ -11,7 +13,8 @@ opt.shiftwidth = 2
 opt.signcolumn = "yes"
 opt.backspace = "indent,eol,start"
 opt.clipboard:append("unnamedplus")
-vim.opt.smartcase = true
+opt.smartcase = true
+opt.mousescroll = "ver:1,hor:1"
 opt.splitright = true
 opt.splitbelow = true
 opt.laststatus = 3
@@ -41,11 +44,11 @@ opt.fillchars = {
 
 -- easy escape and save quit
 vim.keymap.set('i', 'jk', '<Esc>', { noremap = true, silent = true })
-vim.keymap.set('v', 'jk', '<Esc>', { noremap = true, silent = true })
 vim.keymap.set("t", "jk", "<C-\\><C-n>", { silent = true })
 
 vim.keymap.set('n', '<leader>w', ':write<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>q', ':quit<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>Q', '<cmd>q!<cr>', { noremap = true, silent = true })
 
 -- use Ctrl-j and Ctrl-k for command history navigation
 vim.keymap.set('c', '<C-j>', '<Down>', { noremap = true })
@@ -61,6 +64,10 @@ vim.keymap.set("n", "<C-w>+", ":resize +2<CR>", { silent = true })
 vim.keymap.set("n", "<C-w>-", ":resize -2<CR>", { silent = true })
 vim.keymap.set("n", "<C-w>>", ":vertical resize +2<CR>", { silent = true })
 vim.keymap.set("n", "<C-w><", ":vertical resize -2<CR>", { silent = true })
+
+-- window splits
+vim.keymap.set("n", "<leader>|", "<cmd>vsplit<cr>", { desc = "Vertical split" })  -- (left/right)
+vim.keymap.set("n", "<leader>-", "<cmd>split<cr>", { desc = "Horizontal split" })  -- (up/down)
 
 -- highlight yanked text
 vim.api.nvim_exec([[
