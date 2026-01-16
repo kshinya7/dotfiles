@@ -21,5 +21,29 @@ return {
       "<cmd>DiffviewFileHistory %<CR>",
       desc = "Diffview: file history",
     },
-  }
+    {
+      "<leader>gp",
+      function()
+        local handle = io.popen(
+          "gh pr view --json baseRefOid -q .baseRefOid 2>/dev/null"
+        )
+        if not handle then
+          vim.notify("Failed to run gh", vim.log.levels.ERROR)
+          return
+        end
+
+        local base = handle:read("*a")
+        handle:close()
+
+        base = base:gsub("%s+", "")
+        if base == "" then
+          vim.notify("Not on a PR branch", vim.log.levels.WARN)
+          return
+        end
+
+        vim.cmd("DiffviewOpen " .. base .. "...HEAD")
+      end,
+      desc = "Diffview: GitHub PR diff",
+    },
+  },
 }
