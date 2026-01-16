@@ -54,12 +54,6 @@ vim.keymap.set('n', '<leader>Q', '<cmd>q!<cr>', { noremap = true, silent = true 
 vim.keymap.set('c', '<C-j>', '<Down>', { noremap = true })
 vim.keymap.set('c', '<C-k>', '<Up>', { noremap = true })
 
--- window navigation
-vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true })
-
 vim.keymap.set("n", "<C-w>+", ":resize +2<CR>", { silent = true })
 vim.keymap.set("n", "<C-w>-", ":resize -2<CR>", { silent = true })
 vim.keymap.set("n", "<C-w>>", ":vertical resize +2<CR>", { silent = true })
@@ -70,12 +64,10 @@ vim.keymap.set("n", "<leader>|", "<cmd>vsplit<cr>", { desc = "Vertical split" })
 vim.keymap.set("n", "<leader>-", "<cmd>split<cr>", { desc = "Horizontal split" })  -- (up/down)
 
 -- highlight yanked text
-vim.api.nvim_exec([[
-  augroup YankHighlight
-    autocmd!
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank()
-  augroup END
-]], false)
+vim.api.nvim_create_autocmd("TextYankPost", {
+    group = vim.api.nvim_create_augroup("YankHighlight", { clear = true }),
+    callback = function() vim.highlight.on_yank() end,
+  })
 
 -- copy file relative path
 vim.keymap.set("n", "<leader>cp", function()
