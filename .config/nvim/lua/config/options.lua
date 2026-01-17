@@ -63,6 +63,10 @@ vim.keymap.set("n", "<C-w><", ":vertical resize -2<CR>", { silent = true })
 vim.keymap.set("n", "<leader>|", "<cmd>vsplit<cr>", { desc = "Vertical split" })  -- (left/right)
 vim.keymap.set("n", "<leader>-", "<cmd>split<cr>", { desc = "Horizontal split" })  -- (up/down)
 
+-- mappings for "[" and "]" in Normal / visual / operator-pending
+vim.keymap.set({ "n", "v", "o" }, "´", "[", { noremap = true })
+vim.keymap.set({ "n", "v", "o" }, "+", "]", { noremap = true })
+
 -- highlight yanked text
 vim.api.nvim_create_autocmd("TextYankPost", {
     group = vim.api.nvim_create_augroup("YankHighlight", { clear = true }),
