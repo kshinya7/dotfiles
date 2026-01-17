@@ -30,6 +30,10 @@ opt.title = true
 opt.titlestring = "%<%F"
 opt.termguicolors = true
 opt.background = "dark"
+
+-- Undercurl support in tmux
+vim.cmd [[let &t_Cs = "\e[4:3m"]]
+vim.cmd [[let &t_Ce = "\e[4:0m"]]
 vim.g.mapleader = " "
 
 -- char customization
@@ -63,9 +67,8 @@ vim.keymap.set("n", "<C-w><", ":vertical resize -2<CR>", { silent = true })
 vim.keymap.set("n", "<leader>|", "<cmd>vsplit<cr>", { desc = "Vertical split" })  -- (left/right)
 vim.keymap.set("n", "<leader>-", "<cmd>split<cr>", { desc = "Horizontal split" })  -- (up/down)
 
--- mappings for "[" and "]" in Normal / visual / operator-pending
-vim.keymap.set({ "n", "v", "o" }, "´", "[", { noremap = true })
-vim.keymap.set({ "n", "v", "o" }, "+", "]", { noremap = true })
+-- remap + to ] for easier navigation
+vim.opt.langmap = "+]"
 
 -- highlight yanked text
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -77,4 +80,14 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 vim.keymap.set("n", "<leader>cp", function()
   vim.fn.setreg("+", vim.fn.expand("%"))
 end, { desc = "Copy relative file path" })
+
+-- diagnostics
+vim.diagnostic.config({
+  float = { border = "rounded" },
+})
+
+vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Show diagnostic" })
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
 

@@ -39,6 +39,14 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     -- Ufo folds
     vim.api.nvim_set_hl(0, "FoldColumn", { bg = none })
 
+    -- Diagnostics
+    local blue = "#4491cf"
+    vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { undercurl = true, sp = blue })
+    vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn", { undercurl = true, sp = blue })
+    vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo", { undercurl = true, sp = blue })
+    vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint", { undercurl = true, sp = blue })
+
+
     -- Color customizations
     local light_blue = "#39a7b1"
     local white = "#d4d4d4"
@@ -51,6 +59,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     vim.api.nvim_set_hl(0, "String", { fg = light_yellow })
     vim.api.nvim_set_hl(0, "Type", { fg = light_yellow })
     vim.api.nvim_set_hl(0, "Number", { fg = orange })
+    vim.api.nvim_set_hl(0, "Float", { fg = orange })
     vim.api.nvim_set_hl(0, "Function", { fg = light_blue })
     vim.api.nvim_set_hl(0, "@variable", { fg = white })
     vim.api.nvim_set_hl(0, "@string.special", { fg = white })
