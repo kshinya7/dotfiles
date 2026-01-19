@@ -76,6 +76,11 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function() vim.highlight.on_yank() end,
   })
 
+
+-- auto center
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
 -- copy file relative path
 vim.keymap.set("n", "<leader>cp", function()
   vim.fn.setreg("+", vim.fn.expand("%"))
