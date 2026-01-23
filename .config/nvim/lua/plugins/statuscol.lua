@@ -3,6 +3,7 @@ return {
   config = function()
     local builtin = require("statuscol.builtin")
     require("statuscol").setup({
+      ft_ignore = { "neo-tree" },
       relculright = true,
       segments = {
         { sign = { namespace = { "gitsigns" } }, click = "v:lua.ScSa" },  -- git signs

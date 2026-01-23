@@ -35,6 +35,47 @@ return {
   },
 
   opts = {
+    event_handlers = {
+      {
+        event = "neo_tree_buffer_enter",
+        handler = function()
+          vim.opt_local.signcolumn = "no"
+          vim.opt_local.foldcolumn = "0"
+        end,
+      },
+    },
+    close_if_last_window = true,
+    use_libuv_file_watcher = true,
+    group_empty_dirs = true,
+    window = {
+      padding = 0,
+    },
+    default_component_configs = {
+      indent = {
+        -- indent_size = 1,
+        with_markers = true,
+        indent_marker = "│",
+        last_indent_marker = "│",
+        highlight = "NeoTreeIndentMarker",
+        with_expanders = true,
+        expander_collapsed = "",
+        expander_expanded = "",
+        expander_highlight = "NeoTreeExpander",
+      },
+      git_status = {
+        symbols = {
+          added = "A",
+          modified = "M",
+          deleted = "D",
+          renamed = "R",
+          untracked = "U",
+          ignored = "",
+          unstaged = "",
+          staged = "A",
+          conflict = "C",
+        },
+      },
+    },
     filesystem = {
       filtered_items = {
         visible = true,
@@ -45,19 +86,19 @@ return {
           { "indent" },
           { "icon" },
           { "name" },
-          { "git_status" },
+          { "git_status", padding = { left = 1 } },
         },
         file = {
           { "indent" },
           { "icon" },
           { "name" },
-          { "git_status" },
+          { "git_status", padding = { left = 1 } },
         },
         symlink = {
           { "indent" },
           { "icon" },
           { "name" },
-          { "git_status" },
+          { "git_status", padding = { left = 1 } },
         },
       },
       window = {
@@ -71,9 +112,6 @@ return {
       window = {
         position = "right",
       },
-    },
-    source_selector = {
-      winbar = true,      -- show the “tabs” at the top of the sidebar
     },
   },
 }

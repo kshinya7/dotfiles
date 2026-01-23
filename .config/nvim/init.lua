@@ -4,8 +4,6 @@ local function make_transparent()
     "NormalFloat",
     "FloatBorder",
     "Pmenu",
-    "NeoTreeNormal",
-    "NeoTreeNormalNC",
   }
   for _, g in ipairs(groups) do
     vim.api.nvim_set_hl(0, g, { bg = "none" })
@@ -89,6 +87,27 @@ vim.api.nvim_create_autocmd("ColorScheme", {
         vim.treesitter.start()
       end
     })
+
+    -- NeoTree
+    vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "#161a1f" })
+    vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "#161a1f" })
+    vim.api.nvim_set_hl(0, "NeoTreeIndentMarker", { fg = "#2a2f36" })
+    vim.api.nvim_set_hl(0, "NeoTreeExpander", { fg = "#6e7681" })
+
+    -- Git status colors
+    local git_green = "#73c991"
+    local git_yellow = "#deb697"
+    local git_red = "#f14c4c"
+    local git_grey = "#6e7681"
+    vim.api.nvim_set_hl(0, "NeoTreeGitAdded", { fg = git_green })
+    vim.api.nvim_set_hl(0, "NeoTreeGitModified", { fg = git_yellow })
+    vim.api.nvim_set_hl(0, "NeoTreeGitDeleted", { fg = git_red })
+    vim.api.nvim_set_hl(0, "NeoTreeGitRenamed", { fg = git_green })
+    vim.api.nvim_set_hl(0, "NeoTreeGitUntracked", { fg = git_green })
+    vim.api.nvim_set_hl(0, "NeoTreeGitIgnored", { fg = git_grey })
+    vim.api.nvim_set_hl(0, "NeoTreeGitUnstaged", { fg = git_yellow })
+    vim.api.nvim_set_hl(0, "NeoTreeGitStaged", { fg = git_green })
+    vim.api.nvim_set_hl(0, "NeoTreeGitConflict", { fg = git_red })
   end
 })
 
