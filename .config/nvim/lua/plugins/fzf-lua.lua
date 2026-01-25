@@ -8,7 +8,7 @@ return {
   ---@type fzf-lua.Config|{}
   ---@diagnostic disable: missing-fields
   keys = {
-    { 
+    {
       "<leader>ff",
       function()
         require('fzf-lua').files({
@@ -17,7 +17,7 @@ return {
       end,
       desc="Find files in project directory"
     },
-    { 
+    {
       "<leader>fg",
       function()
         require('fzf-lua').live_grep({
@@ -125,18 +125,35 @@ return {
   },
 
   opts = {
+    defaults = {
+      formatter = "path.filename_first",
+    },
+    hls = {
+      border = "FzfLuaBorder",
+    },
     winopts = {
-      height = 0.8,
+      height = 0.9,
       width = 1.0,
       row = 1.0,
       fullscreen = false,
+      border = { "─", "─", "─", " ", " ", " ", " ", " " },
       preview = {
         layout = "vertical",
         vertical = "down:65%",
+        border = { "─", "─", "─", " ", " ", " ", " ", " " },
+        title = false,
+      },
+    },
+    builtin = {
+      winopts = {
+        height = 0.9,
+        width = 1.0,
+        row = 1.0,
       },
     },
   },
   config = function(_, opts)
+    vim.api.nvim_set_hl(0, "FzfLuaBorder", { fg = "#3e4450" })
     require("fzf-lua").setup(opts)
     require("fzf-lua").register_ui_select()
   end,
