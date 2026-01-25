@@ -15,3 +15,4 @@ lua-language-server/
 # tmux
 .config/tmux/plugins
 
+.DS_Store

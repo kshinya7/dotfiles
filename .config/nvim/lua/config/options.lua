@@ -1,9 +1,7 @@
 local opt = vim.opt
 
-opt.relativenumber = true
+-- opt.relativenumber = true
 opt.number = true
-opt.timeoutlen = 400
-opt.updatetime = 200
 opt.wrap = true
 opt.linebreak = true
 opt.expandtab = true
