@@ -3,7 +3,7 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     local custom_horizon = require("lualine.themes.horizon")
-    local bg = "#161a1f"
+    local bg = "#191a21"
     local fg = "#bbbebd"
     
     for _, mode in pairs(custom_horizon) do

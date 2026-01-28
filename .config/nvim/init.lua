@@ -20,12 +20,15 @@ vim.api.nvim_create_autocmd("ColorScheme", {
   pattern = "horizon",
   callback = function()
     -- Set background color
-    vim.api.nvim_set_hl(0, "Normal", { bg = "#1d2026" })
-    vim.api.nvim_set_hl(0, "NormalNC", { bg = "#1d2026" })
-    vim.api.nvim_set_hl(0, "SignColumn", { bg = "#1d2026" })
+    local bg_color = "#1c1e26"
+    local accent_color = "#191a21"
+
+    vim.api.nvim_set_hl(0, "Normal", { bg = bg_color })
+    vim.api.nvim_set_hl(0, "NormalNC", { bg = bg_color })
+    vim.api.nvim_set_hl(0, "SignColumn", { bg = bg_color })
 
     -- Window separator line
-    vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#161a1f" })
+    vim.api.nvim_set_hl(0, "WinSeparator", { fg = accent_color })
 
     -- Winsep separator
     vim.api.nvim_set_hl(0, "ColorfulWinSep", { fg = "#6a6a6a" })
@@ -36,6 +39,9 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 
     -- Ufo folds
     vim.api.nvim_set_hl(0, "FoldColumn", { bg = none })
+
+    -- Spells
+    vim.api.nvim_set_hl(0, "@spell", { fg = "#4c4d52", italic = true })
 
     -- Diagnostics
     local blue = "#4491cf"
@@ -48,8 +54,8 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     -- Color customizations
     local light_blue = "#39a7b1"
     local white = "#d4d4d4"
-    local purple = "#a16ac1"
-    local red = "#c75575"
+    local purple = "#a76dc8"
+    local red = "#ce5773"
     local orange = "#d18c80"
     local light_yellow = "#deb697"
 
@@ -61,7 +67,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     vim.api.nvim_set_hl(0, "Function", { fg = light_blue })
     vim.api.nvim_set_hl(0, "@variable", { fg = white })
     vim.api.nvim_set_hl(0, "@string.special", { fg = white })
-    vim.api.nvim_set_hl(0, "Comment", { fg = "#595f68" })
+    vim.api.nvim_set_hl(0, "Comment", { fg = "#4c4d52" })
     vim.api.nvim_set_hl(0, "@punctuation.delimiter", { fg = purple })
     vim.api.nvim_set_hl(0, "@punctuation.special", { fg = purple })
     vim.api.nvim_set_hl(0, "@operator", { fg = purple })
@@ -89,8 +95,8 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     })
 
     -- NeoTree
-    vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "#161a1f" })
-    vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "#161a1f" })
+    vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = accent_color })
+    vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = accent_color })
     vim.api.nvim_set_hl(0, "NeoTreeIndentMarker", { fg = "#2a2f36" })
     vim.api.nvim_set_hl(0, "NeoTreeExpander", { fg = "#6e7681" })
 

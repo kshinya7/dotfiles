@@ -4,6 +4,7 @@ local opt = vim.opt
 opt.number = true
 opt.wrap = true
 opt.linebreak = true
+opt.breakindent = true
 opt.expandtab = true
 opt.tabstop = 2
 opt.softtabstop = 2
