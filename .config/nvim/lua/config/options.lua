@@ -50,9 +50,7 @@ vim.keymap.set('i', 'jk', '<Esc>', { noremap = true, silent = true })
 vim.keymap.set("t", "jk", "<C-\\><C-n>", { silent = true })
 
 vim.keymap.set('n', '<leader>w', ':write<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>q', ':quit<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>Q', '<cmd>q!<cr>', { noremap = true, silent = true })
-
+vim.keymap.set('n', '<leader>q', '<cmd>bd<cr>')
 -- use Ctrl-j and Ctrl-k for command history navigation
 vim.keymap.set('c', '<C-j>', '<Down>', { noremap = true })
 vim.keymap.set('c', '<C-k>', '<Up>', { noremap = true })
