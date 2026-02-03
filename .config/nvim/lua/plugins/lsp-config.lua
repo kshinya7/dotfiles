@@ -14,6 +14,12 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       vim.lsp.config("ruby_lsp", {
+        init_options = {
+          enabledFeatures = {
+            -- disable the db migration prompts
+            railsMigrations = false,
+          },
+        },
         on_attach = function(client, bufnr)
           client.server_capabilities.semanticTokensProvider = nil
         end,
