@@ -1,20 +1,3 @@
-local function make_transparent()
-  local groups = {
-    "EndOfBuffer",
-    "NormalFloat",
-    "FloatBorder",
-    "Pmenu",
-  }
-  for _, g in ipairs(groups) do
-    vim.api.nvim_set_hl(0, g, { bg = "none" })
-  end
-end
-
--- Transparency for all colorschemes
-vim.api.nvim_create_autocmd("ColorScheme", {
-  callback = make_transparent,
-})
-
 -- Teide-specific color customizations
 vim.api.nvim_create_autocmd("ColorScheme", {
   pattern = "horizon",

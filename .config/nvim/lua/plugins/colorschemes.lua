@@ -1,12 +1,13 @@
 return {
   {
-    "akinsho/horizon.nvim",
+    "kshinya7/amaranth.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme("horizon")
+      vim.cmd.colorscheme("amaranth")
     end,
   },
+  { "akinsho/horizon.nvim" },
   { "serhez/teide.nvim" },
   { "folke/tokyonight.nvim" },
   { "ellisonleao/gruvbox.nvim" },
