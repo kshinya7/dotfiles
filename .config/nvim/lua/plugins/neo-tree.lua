@@ -49,6 +49,9 @@ return {
     group_empty_dirs = true,
     window = {
       padding = 0,
+      mappings = {
+        ["<Tab>"] = "open",
+      },
     },
     default_component_configs = {
       indent = {
