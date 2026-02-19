@@ -27,6 +27,7 @@ return {
           {
             "filename",
             path = 0, -- filename only
+            color = { fg = "#b5b9c9", bg = "NONE" },
             symbols = {
               modified = " [+]",
               readonly = " [-]",
@@ -46,6 +47,7 @@ return {
           {
             "filename",
             path = 0,
+            color = { fg = "#b5b9c9", bg = "NONE" },
             symbols = {
               modified = " [+]",
               readonly = " [-]",
