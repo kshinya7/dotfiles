@@ -10,6 +10,7 @@ return {
     },
     explorer = {
       position = "bottom",
+      height = 10,
     },
   },
   config = function(_, opts)

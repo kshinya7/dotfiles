@@ -5,9 +5,8 @@ return {
     require("lualine").setup({
       options = {
         icons_enabled = false,
-        theme = "amaranth",
+        theme = "auto",
         globalstatus = true,
-        section_separators = "",
         component_separators = "",
       },
 
@@ -20,45 +19,6 @@ return {
         lualine_z = {},
       },
 
-      winbar = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = {
-          {
-            "filename",
-            path = 0, -- filename only
-            color = { fg = "#b5b9c9", bg = "NONE" },
-            symbols = {
-              modified = " [+]",
-              readonly = " [-]",
-              unnamed  = "[No Name]",
-            },
-          },
-        },
-        lualine_x = {},
-        lualine_y = {},
-        lualine_z = {},
-      },
-
-      inactive_winbar = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = {
-          {
-            "filename",
-            path = 0,
-            color = { fg = "#b5b9c9", bg = "NONE" },
-            symbols = {
-              modified = " [+]",
-              readonly = " [-]",
-              unnamed  = "[No Name]",
-            },
-          },
-        },
-        lualine_x = {},
-        lualine_y = {},
-        lualine_z = {},
-      },
     })
   end,
 }

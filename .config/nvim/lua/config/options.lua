@@ -12,6 +12,7 @@ opt.shiftwidth = 2
 opt.signcolumn = "yes"
 opt.backspace = "indent,eol,start"
 opt.clipboard:append("unnamedplus")
+opt.ignorecase = true
 opt.smartcase = true
 opt.mousescroll = "ver:1,hor:1"
 opt.splitright = true
@@ -80,8 +81,8 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- copy file relative path
 vim.keymap.set("n", "<leader>cp", function()
-  vim.fn.setreg("+", vim.fn.expand("%"))
-end, { desc = "Copy relative file path" })
+  vim.fn.setreg("+", vim.fn.expand("%") .. ":" .. vim.fn.line("."))
+end, { desc = "Copy relative file path with line number" })
 
 -- diagnostics
 vim.diagnostic.config({
@@ -92,4 +93,5 @@ vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Show diag
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
+vim.keymap.set("n", "<leader>ci", "<cmd>Inspect<cr>", { desc = "Inspect highlight" })
 

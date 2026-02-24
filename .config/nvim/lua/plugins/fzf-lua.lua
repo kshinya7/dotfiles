@@ -94,6 +94,13 @@ return {
       desc = "Pick directory then find files",
     },
     {
+      "<leader>fr",
+      function()
+        require("fzf-lua").resume()
+      end,
+      desc = "Resume last fzf-lua picker",
+    },
+    {
       "<leader>fG",
       function()
         local fzf_lua = require("fzf-lua")
@@ -127,6 +134,21 @@ return {
   opts = {
     defaults = {
       formatter = "path.filename_first",
+      actions = {
+        ["default"] = function(selected, opts)
+          if #selected > 1 then
+            vim.g.fzf_last_query = opts.last_query or ""
+            require("trouble.sources.fzf").open(selected, opts)
+          else
+            require("fzf-lua.actions").file_edit(selected, opts)
+          end
+        end,
+      },
+    },
+    keymap = {
+      fzf = {
+        ["ctrl-a"] = "select-all",
+      },
     },
     hls = {
       border = "FzfLuaBorder",
@@ -153,7 +175,6 @@ return {
     },
   },
   config = function(_, opts)
-    vim.api.nvim_set_hl(0, "FzfLuaBorder", { fg = "#3e4450" })
     require("fzf-lua").setup(opts)
     require("fzf-lua").register_ui_select()
   end,
