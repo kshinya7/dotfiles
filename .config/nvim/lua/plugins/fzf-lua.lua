@@ -7,12 +7,24 @@ return {
   ---@module "fzf-lua"
   ---@type fzf-lua.Config|{}
   ---@diagnostic disable: missing-fields
-  keys = {
+  keys = (function()
+    local fzf_actions = {
+      ["default"] = function(selected, opts)
+        if #selected > 1 then
+          vim.g.fzf_last_query = opts.last_query or ""
+          require("trouble.sources.fzf").open(selected, opts)
+        else
+          require("fzf-lua.actions").file_edit(selected, opts)
+        end
+      end,
+    }
+    return {
     {
       "<leader>ff",
       function()
         require('fzf-lua').files({
-          fd_opts = "--type f --exclude 'sorbet/rbi/'"
+          fd_opts = "--type f --exclude 'sorbet/rbi/'",
+          actions = fzf_actions,
         })
       end,
       desc="Find files in project directory"
@@ -32,6 +44,7 @@ return {
             "--glob '!public/*'",
             "--glob '!sorbet/*'",
           }, " "),
+          actions = fzf_actions,
         })
       end,
       desc="Find by grepping in project directory"
@@ -39,14 +52,14 @@ return {
     {
       "<leader>fb",
       function()
-          require("fzf-lua").buffers()
+        require("fzf-lua").buffers({ actions = fzf_actions })
       end,
       desc = "Find existing buffers",
     },
     {
-      "<leader><leader>",
+      "<leader>/",
       function()
-        require("fzf-lua").lgrep_curbuf()
+        require("fzf-lua").lgrep_curbuf({ actions = fzf_actions })
       end,
       desc = "Live grep the current buffer"
     },
@@ -85,7 +98,7 @@ return {
           actions = {
             ["default"] = function(selected)
               if selected[1] then
-                fzf_lua.files({ cwd = selected[1], fd_opts = "--type f" })
+                fzf_lua.files({ cwd = selected[1], fd_opts = "--type f", actions = fzf_actions })
               end
             end,
           },
@@ -121,7 +134,7 @@ return {
           actions = {
             ["default"] = function(selected)
               if selected[1] then
-                fzf_lua.live_grep({ cwd = selected[1] })
+                fzf_lua.live_grep({ cwd = selected[1], actions = fzf_actions })
               end
             end,
           },
@@ -129,21 +142,11 @@ return {
       end,
       desc = "Pick directory then live grep",
     },
-  },
+  } end)(),
 
   opts = {
     defaults = {
       formatter = "path.filename_first",
-      actions = {
-        ["default"] = function(selected, opts)
-          if #selected > 1 then
-            vim.g.fzf_last_query = opts.last_query or ""
-            require("trouble.sources.fzf").open(selected, opts)
-          else
-            require("fzf-lua.actions").file_edit(selected, opts)
-          end
-        end,
-      },
     },
     keymap = {
       fzf = {
