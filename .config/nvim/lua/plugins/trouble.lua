@@ -3,6 +3,11 @@ return {
   cmd = "Trouble",
   opts = {
     focus = true,
+    preview = {
+      wo = {
+        wrap = true,
+      },
+    },
     win = {
       position = "right",
       size = 74,
@@ -11,6 +16,12 @@ return {
       },
     },
     modes = {
+      qflist = {
+        groups = {
+          { "filename", format = "{file_icon} {file_basename}  {file_dirname}" },
+        },
+        format = "{lnum} {text}",
+      },
       fzf_files = {
         groups = {},
         format = "{file_icon} {file_basename}  {file_dirname}",

@@ -99,7 +99,10 @@ return {
       },
 
       sections = {
-        lualine_a = { { "mode", fmt = function(s) return s:sub(1, 1) end } },
+        lualine_a = { { "mode", fmt = function(s)
+          if s == "V-BLOCK" then return "Vb" end
+          return s:sub(1, 1)
+        end } },
         lualine_b = { "branch" },
         lualine_c = { "diff", "diagnostics" },
         lualine_x = { codeowner, { "filetype", icon = false }, "location" },
